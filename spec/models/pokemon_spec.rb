@@ -1,0 +1,2 @@
+class PokemonSpec
+end
