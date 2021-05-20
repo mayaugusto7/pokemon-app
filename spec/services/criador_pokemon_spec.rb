@@ -4,11 +4,10 @@ RSpec.describe CriadorPokemon, type: :model do
   describe '#criar' do
 
     before do
-      body = '{' \
-      '"name": "Charizard"' \
-      '}'
-      stub_request(:get, 'https://pokeapi.co/api/v2/pokemon/1/')
-        .to_return(status: 200, body: body, headers: {})
+      caminho_arquivo = 'spec/fixtures/services/criador_pokemon/resposta.txt'
+      arquivo_resposta = File.new(caminho_arquivo)
+      stub_request(:get, 'https://pokeapi.co/api/v2/pokemon/6/')
+        .to_return(arquivo_resposta)
     end
 
     let(:criador_pokemon) do
@@ -31,7 +30,7 @@ RSpec.describe CriadorPokemon, type: :model do
       end
 
       it 'possui o nome correto' do
-        expect(subject.send(:nome)).to eq('Charizard')
+        expect(subject.send(:nome)).to eq('charizard')
       end
     end
   end

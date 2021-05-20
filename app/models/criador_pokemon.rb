@@ -20,8 +20,7 @@ class CriadorPokemon
   end
 
   def cria_info
-    uri = endpoint
-    resposta = Net::HTTP.get(uri)
+    resposta = Net::HTTP.get(endpoint)
     @info = JSON.parse(resposta)
   end
 
