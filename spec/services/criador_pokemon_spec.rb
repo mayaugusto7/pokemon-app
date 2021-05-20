@@ -2,6 +2,15 @@ require 'rails_helper'
 
 RSpec.describe CriadorPokemon, type: :model do
   describe '#criar' do
+
+    before do
+      body = '{' \
+      '"name": "Charizard"' \
+      '}'
+      stub_request(:get, 'https://pokeapi.co/api/v2/pokemon/1/')
+        .to_return(status: 200, body: body, headers: {})
+    end
+
     let(:criador_pokemon) do
       CriadorPokemon.new(6)
     end
@@ -22,7 +31,7 @@ RSpec.describe CriadorPokemon, type: :model do
       end
 
       it 'possui o nome correto' do
-        expect(subject.nome).to eq('charizard')
+        expect(subject.send(:nome)).to eq('Charizard')
       end
     end
   end

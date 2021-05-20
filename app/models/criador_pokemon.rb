@@ -1,3 +1,6 @@
+require 'uri'
+require 'net/http'
+
 class CriadorPokemon
   def initialize(id_nacional)
     @id_nacional = id_nacional
@@ -6,10 +9,6 @@ class CriadorPokemon
 
   def criar
     Pokemon.create(nome: nome)
-  end
-
-  def nome
-    info['name']
   end
 
   private
@@ -21,7 +20,12 @@ class CriadorPokemon
   end
 
   def cria_info
-    response = Net::HTTP.get(endpoint)
-    @info = JSON.parse(response)
+    uri = endpoint
+    resposta = Net::HTTP.get(uri)
+    @info = JSON.parse(resposta)
+  end
+
+  def nome
+    info['name']
   end
 end
