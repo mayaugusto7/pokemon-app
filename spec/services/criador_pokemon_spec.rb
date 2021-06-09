@@ -1,14 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe CriadorPokemon, type: :model do
-  describe '#criar' do
-
-    before do
-      caminho_arquivo = 'spec/fixtures/services/criador_pokemon/resposta.txt'
-      arquivo_resposta = File.new(caminho_arquivo)
-      stub_request(:get, 'https://pokeapi.co/api/v2/pokemon/6/')
-        .to_return(arquivo_resposta)
-    end
+  describe '#criar', vcr: { cassette_name: 'criador_pokemon/criar' } do
 
     let(:criador_pokemon) do
       CriadorPokemon.new(6)
