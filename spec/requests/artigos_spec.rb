@@ -14,4 +14,18 @@ RSpec.describe ArtigosController, type: :controller do
       expect(assigns(:artigo)).to eq(artigo)
     end
   end
+
+  describe "POST 'create'" do
+    let(:params) do
+      {
+        artigo: attributes_for(:artigo)
+      }
+    end
+
+    it 'create a new article' do
+      expect do
+        post :create, :params => params
+      end.to change(Artigo, :count).by(1)
+    end
+  end
 end
