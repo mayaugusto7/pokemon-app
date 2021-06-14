@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :artigo do
-    titulo { "MyString" }
-    descricao { "MyString" }
+    titulo { "Rails 6" }
+    descricao { "Rails Framework" }
   end
 end

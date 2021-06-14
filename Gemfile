@@ -34,6 +34,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'capybara', '>= 3.26'
   gem 'factory_bot_rails'
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'web-console', '>= 4.1.0'
@@ -46,6 +47,7 @@ group :development do
   gem 'spring'
   gem 'vcr'
   gem 'webmock'
+  gem 'rails-controller-testing'
 end
 
 group :test do
@@ -58,6 +60,7 @@ group :test do
   gem 'vcr'
   gem 'webdrivers'
   gem 'webmock'
+  gem 'rails-controller-testing'
 end
 
 gem 'rexml'
