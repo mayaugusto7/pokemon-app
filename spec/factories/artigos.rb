@@ -3,7 +3,7 @@ FactoryBot.define do
   factory :artigo do
     sequence(:titulo) { |n|  "Diversas dicas do RSpec #{n}" }
     descricao { "Conteúdo do artigo #{titulo}. Approved: #{aprovado}" }
-    association :autor, factory: :usuarios, nome: 'Mauro'
+    autor
     created_at { 2.days.ago }
 
     trait :aprovado do
