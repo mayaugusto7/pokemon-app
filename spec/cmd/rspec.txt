@@ -1,0 +1,40 @@
+
+something
+[32m  does something that passes[0m
+[31m  does something that fails (FAILED - 1)[0m
+[33m  does something that is pending (PENDING: No reason given)[0m
+[33m  does something that is skipped (PENDING: No reason given)[0m
+
+Pending: (Failures listed here are expected and do not affect your suite's status)
+
+  1) something does something that is pending
+     [36m# No reason given[0m
+     [33mFailure/Error: [0m[32mexpect[0m([1;34m5[0m).to be < [1;34m3[0m[0m
+     [33m[0m
+     [33m  expected: < 3[0m
+     [33m       got:   5[0m
+     [36m# ./example_spec.rb:11:in `block (2 levels) in <top (required)>'[0m
+[33m
+  2) something does something that is skipped[0m
+     [36m# No reason given[0m
+[36m     # ./example_spec.rb:14
+[0m
+
+Failures:
+
+  1) something does something that fails
+     [31mFailure/Error: [0m[32mexpect[0m([1;34m5[0m).to eq([1;34m4[0m)[0m
+     [31m[0m
+     [31m  expected: 4[0m
+     [31m       got: 5[0m
+     [31m[0m
+     [31m  (compared using ==)[0m
+     [36m# ./example_spec.rb:7:in `block (2 levels) in <top (required)>'[0m
+
+Finished in 0.02069 seconds (files took 0.37093 seconds to load)
+[31m4 examples, 1 failure, 2 pending[0m
+
+Failed examples:
+
+[31mrspec ./example_spec.rb:6[0m [36m# something does something that fails[0m
+

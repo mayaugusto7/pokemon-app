@@ -10,13 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_18_121054) do
+ActiveRecord::Schema.define(version: 2021_06_15_154708) do
+
+  create_table "artigos", force: :cascade do |t|
+    t.string "titulo"
+    t.string "descricao"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.boolean "aprovado", default: false
+    t.integer "autor_id", null: false
+    t.index ["autor_id"], name: "index_artigos_on_autor_id"
+  end
 
   create_table "pokemons", force: :cascade do |t|
     t.string "nome"
     t.integer "id_nacional"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "ataque"
   end
 
+  create_table "usuarios", force: :cascade do |t|
+    t.string "nome"
+    t.string "email"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  add_foreign_key "artigos", "usuarios", column: "autor_id"
 end

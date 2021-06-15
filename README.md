@@ -22,3 +22,6 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+rspec sample_spec.rb -fdoc
+rspec before_context_fail_spec.rb:9 --format documentation

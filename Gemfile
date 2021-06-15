@@ -34,6 +34,8 @@ group :development, :test do
 end
 
 group :development do
+  gem 'capybara', '>= 3.26'
+  gem 'factory_bot_rails'
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'web-console', '>= 4.1.0'
   # Display performance information such as SQL time and flame graphs for each request in your browser.
@@ -43,18 +45,25 @@ group :development do
   gem 'rspec-rails'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+  gem 'vcr'
+  gem 'webmock'
+  gem 'rails-controller-testing'
 end
 
 group :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 3.26'
+  gem 'factory_bot_rails'
   gem 'rspec-rails'
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
+  gem 'vcr'
   gem 'webdrivers'
+  gem 'webmock'
+  gem 'rails-controller-testing'
 end
 
 gem 'rexml'
-gem 'webmock'
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
